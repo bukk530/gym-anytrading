@@ -120,10 +120,9 @@ Besides, you can create your own customized environment by extending TradingEnv 
 
 ### Create an environment
 
-
 ```python
 import gym
-import gym_anytrading
+import gym_manytrading
 
 env = gym.make('forex-v0')
 # env = gym.make('stocks-v0')
@@ -135,15 +134,14 @@ env = gym.make('forex-v0')
 ### Create an environment with custom parameters
 I put two default datasets for [*FOREX*](https://github.com/AminHP/gym-anytrading/blob/master/gym_anytrading/datasets/data/FOREX_EURUSD_1H_ASK.csv) and [*Stocks*](https://github.com/AminHP/gym-anytrading/blob/master/gym_anytrading/datasets/data/STOCKS_GOOGL.csv) but you can use your own.
 
-
 ```python
-from gym_anytrading.datasets import FOREX_EURUSD_1H_ASK, STOCKS_GOOGL
+from gym_manytrading.datasets import FOREX_EURUSD_1H_ASK, STOCKS_GOOGL
 
 custom_env = gym.make('forex-v0',
-               df = FOREX_EURUSD_1H_ASK,
-               window_size = 10,
-               frame_bound = (10, 300),
-               unit_side = 'right')
+                      df=FOREX_EURUSD_1H_ASK,
+                      window_size=10,
+                      frame_bound=(10, 300),
+                      unit_side='right')
 
 # custom_env = gym.make('stocks-v0',
 #                df = STOCKS_GOOGL,
@@ -207,12 +205,11 @@ env.render()
 
 ### A complete example
 
-
 ```python
 import gym
-import gym_anytrading
-from gym_anytrading.envs import TradingEnv, ForexEnv, StocksEnv, Actions, Positions 
-from gym_anytrading.datasets import FOREX_EURUSD_1H_ASK, STOCKS_GOOGL
+import gym_manytrading
+from gym_manytrading.envs import TradingEnv, ForexEnv, StocksEnv, Actions, Positions
+from gym_manytrading.datasets import FOREX_EURUSD_1H_ASK, STOCKS_GOOGL
 import matplotlib.pyplot as plt
 
 env = gym.make('forex-v0', frame_bound=(50, 100), window_size=10)
